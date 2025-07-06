@@ -14,3 +14,10 @@ Frontend/UI: Streamlit
 AI Model: Google Gemini Pro (gemini-2.5-pro)
 OCR/Image Parsing: pdf2image, PIL
 Env Management: python-dotenv
+
+**Sample Prompts**
+You can switch between analysis modes:
+Fit Summary & Analysis
+Percentage Match
+Resume Parser
+Red Flags Checker
