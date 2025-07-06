@@ -77,7 +77,6 @@ def get_gemini_response(prompt, pdf_parts, job_description=""):
         if job_description:
             content_to_send.append(job_description)
         
-        # The extend method adds all items from the pdf_parts list
         content_to_send.extend(pdf_parts)
         
         response = model.generate_content(content_to_send)
@@ -123,7 +122,6 @@ st.set_page_config(page_title="ATS Resume Expert", layout="wide", initial_sideba
 st.title(" ATS Resume Analyzer")
 st.markdown("Get instant, AI-powered feedback on your resume. This tool analyzes your entire resume, not just the first page.")
 
-# Initialize session state variables if they don't exist
 if 'pdf_content' not in st.session_state:
     st.session_state.pdf_content = None
 if 'processed_file_name' not in st.session_state:
@@ -164,10 +162,8 @@ if st.button("Analyze Resume", type="primary", use_container_width=True):
         with st.spinner(f" Running '{analysis_type}' analysis..."):
             prompt_to_use = PROMPTS[analysis_type]
             
-            # Call the unified API function
             response = get_gemini_response(prompt_to_use, st.session_state.pdf_content, job_description)
             
-            # Display the result
             st.markdown(f"--- \n ### Results for: {analysis_type}")
             st.markdown(response)
     else:
